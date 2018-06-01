@@ -12,4 +12,4 @@ COPY . .
 
 RUN make
 
-ENTRYPOINT ["./ips/dnsseed"]
+ENTRYPOINT ["/ips/dnsseed"]

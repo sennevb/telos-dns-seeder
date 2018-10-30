@@ -404,7 +404,7 @@ static const string *seeds = mainnet_seeds;
 
 extern "C" void* ThreadSeeder(void*) {
   if (!fTestNet){
-    db.Add(CService("167.99.103.131", 22331), true);
+    db.Add(CService("seed1.gossipcoin.net", 22123), true);
   }
   do {
     for (int i=0; seeds[i] != ""; i++) {

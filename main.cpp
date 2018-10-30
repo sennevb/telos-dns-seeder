@@ -397,14 +397,13 @@ extern "C" void* ThreadStats(void*) {
   return nullptr;
 }
 
-static const string mainnet_seeds[] = {"seed1.gossipcoin.net", ""};
-static const string testnet_seeds[] = {"testnet-seed1.gossipcoin.net",
-                                       ""};
+static const string mainnet_seeds[] = {"seed1.gossipcoin.net", "seed2.gossipcoin.net", "explorer.gossipcoin.net",  ""};
+static const string testnet_seeds[] = {"testnet-seed1.gossipcoin.net", ""};
 static const string *seeds = mainnet_seeds;
 
 extern "C" void* ThreadSeeder(void*) {
   if (!fTestNet){
-    db.Add(CService("seed1.gossipcoin.net", 22123), true);
+    db.Add(CService("80.211.195.49", 22123), true);
   }
   do {
     for (int i=0; seeds[i] != ""; i++) {

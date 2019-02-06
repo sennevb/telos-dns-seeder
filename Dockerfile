@@ -12,4 +12,4 @@ COPY . .
 
 RUN make
 
-ENTRYPOINT ["/gos/dnsseed"]
+ENTRYPOINT ["/telos/dnsseed"]

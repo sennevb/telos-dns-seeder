@@ -35,7 +35,7 @@ public:
   CDnsSeedOpts() : nThreads(96), nDnsThreads(4), nPort(53), mbox(NULL), ns(NULL), host(NULL), tor(NULL), fUseTestNet(false), fWipeBan(false), fWipeIgnore(false), ipv4_proxy(NULL), ipv6_proxy(NULL) {}
 
   void ParseCommandLine(int argc, char **argv) {
-    static const char *help = "Gossipcoin-seeder\n"
+    static const char *help = "Teloscoin-seeder\n"
                               "Usage: %s -h <host> -n <ns> [-m <mbox>] [-t <threads>] [-p <port>]\n"
                               "\n"
                               "Options:\n"
@@ -397,13 +397,13 @@ extern "C" void* ThreadStats(void*) {
   return nullptr;
 }
 
-static const string mainnet_seeds[] = {"seed1.gossipcoin.net", "seed2.gossipcoin.net", "explorer.gossipcoin.net",  ""};
-static const string testnet_seeds[] = {"testnet-seed1.gossipcoin.net", ""};
+static const string mainnet_seeds[] = {"seed1.teloscoin.net", "seed2.teloscoin.net", "explorer.teloscoin.net",  ""};
+static const string testnet_seeds[] = {"testnet-seed1.teloscoin.net", ""};
 static const string *seeds = mainnet_seeds;
 
 extern "C" void* ThreadSeeder(void*) {
   if (!fTestNet){
-    db.Add(CService("80.211.195.49", 22123), true);
+    db.Add(CService("159.69.33.243", 22123), true);
   }
   do {
     for (int i=0; seeds[i] != ""; i++) {

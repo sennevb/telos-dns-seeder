@@ -397,8 +397,8 @@ extern "C" void* ThreadStats(void*) {
   return nullptr;
 }
 
-static const string mainnet_seeds[] = {"seed1.teloscoin.net", "seed2.teloscoin.net", "explorer.teloscoin.net",  ""};
-static const string testnet_seeds[] = {"testnet-seed1.teloscoin.net", ""};
+static const string mainnet_seeds[] = {"seed1.teloscoin.org", "seed2.teloscoin.org", "149.28.207.67", "159.69.51.40", "explorer.teloscoin.org",  ""};
+static const string testnet_seeds[] = {"testnet-seed1.teloscoin.org", ""};
 static const string *seeds = mainnet_seeds;
 
 extern "C" void* ThreadSeeder(void*) {

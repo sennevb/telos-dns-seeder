@@ -397,14 +397,11 @@ extern "C" void* ThreadStats(void*) {
   return nullptr;
 }
 
-static const string mainnet_seeds[] = {"176.9.74.62", "159.69.33.146", "159.69.33.156", "159.69.33.171",  "159.69.33.172", "149.28.207.67", "94.130.206.190", "159.69.51.40", "95.216.152.134", ""};
+static const string mainnet_seeds[] = {"ec2-34-223-223-135.us-west-2.compute.amazonaws.com", "176.9.74.62", "159.69.33.146", "159.69.33.156", "159.69.33.171",  "159.69.33.172", "149.28.207.67", "94.130.206.190", "159.69.51.40", "95.216.152.134", ""};
 static const string testnet_seeds[] = {"testnet-seed1.teloscoin.org", "88.198.37.154", "dnsseed2.teloscoin.org", "85.214.205.217", "159.69.33.146", "159.69.33.156", "159.69.33.171", "159.69.33.172", "149.28.207.67", "94.130.206.190", "159.69.51.40", "95.216.152.134", ""};
 static const string *seeds = mainnet_seeds;
 
 extern "C" void* ThreadSeeder(void*) {
-  if (!fTestNet){
-    db.Add(CService("176.9.74.62", 8051), true);
-  }
   do {
     for (int i=0; seeds[i] != ""; i++) {
       vector<CNetAddr> ips;

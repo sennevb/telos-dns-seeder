@@ -397,14 +397,12 @@ extern "C" void* ThreadStats(void*) {
   return nullptr;
 }
 
-static const string mainnet_seeds[] = {"dnsseed1.transcendence.cloud", "dnsseed2.transcendence.cloud", "149.28.207.67", "159.69.51.40", "explorer.teloscoin.org",  ""};
-static const string testnet_seeds[] = {"testnet-seed1.teloscoin.org", ""};
+//5.189.139.203 - DNS-seeder
+static const string mainnet_seeds[] = {"5.189.139.203", "176.9.74.62", "159.69.33.146", "159.69.33.156", "159.69.33.171",  "159.69.33.172", "149.28.207.67", "94.130.206.190", "159.69.51.40", "95.216.152.134", ""};
+static const string testnet_seeds[] = {"testnet-seed1.teloscoin.org", "88.198.37.154", "dnsseed2.teloscoin.org", "85.214.205.217", "159.69.33.146", "159.69.33.156", "159.69.33.171", "159.69.33.172", "149.28.207.67", "94.130.206.190", "159.69.51.40", "95.216.152.134", ""};
 static const string *seeds = mainnet_seeds;
 
 extern "C" void* ThreadSeeder(void*) {
-  if (!fTestNet){
-    db.Add(CService("159.69.33.243", 22123), true);
-  }
   do {
     for (int i=0; seeds[i] != ""; i++) {
       vector<CNetAddr> ips;
@@ -455,10 +453,10 @@ int main(int argc, char **argv) {
   bool fDNS = true;
   if (opts.fUseTestNet) {
       printf("Using testnet.\n");
-      pchMessageStart[0] = 0x0b;
-      pchMessageStart[1] = 0x11;
-      pchMessageStart[2] = 0x09;
-      pchMessageStart[3] = 0x07;
+      pchMessageStart[0] = 0x54;
+      pchMessageStart[1] = 0x45;
+      pchMessageStart[2] = 0x65;
+      pchMessageStart[3] = 0xba;
       seeds = testnet_seeds;
       fTestNet = true;
   }

@@ -80,7 +80,7 @@ class CNode {
     CAddress me(CService("0.0.0.0"));
     BeginMessage("version");
     int nBestHeight = GetRequireHeight();
-    string ver = "/gossip-seeder:0.0.1/";
+    string ver = "/telos-seeder:0.0.1/";
     vSend << PROTOCOL_VERSION << nLocalServices << nTime << you << me << nLocalNonce << ver << nBestHeight;
     EndMessage();
   }
